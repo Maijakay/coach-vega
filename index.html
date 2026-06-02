@@ -111,7 +111,7 @@ textarea{min-height:54px;resize:vertical}
 const API='https://mjzhtzjyflticznicymj.supabase.co/functions/v1/app';
 const ANCHOR=new Date('2026-05-10T00:00:00');
 const SESSIONS=[
- {t:'1 · Glute & Hip Foundation + Core',d:'~25 min · the most important one. Wakes up glutes so hips stop overcompensating.',cc:0,link:'https://www.nourishmovelove.com/glute-activation/'},
+ {t:'1 · Glute & Hip Foundation + Core',d:'~25 min · Do BOTH in order: 10-min activation, then the 20-min glute strength. The most important session — wakes glutes so hips stop overcompensating.',cc:0,link:'https://www.nourishmovelove.com/glute-activation/',link2:'https://www.nourishmovelove.com/20-minute-glute-workout/'},
  {t:'2 · Easy Trainer Spin',d:'25–30 min · RPE 4–5, conversational. Break in the trainer.',cc:0,link:'https://www.youtube.com/watch?v=D3bQxOx8DAk'},
  {t:'3 · Walk/Run Intervals',d:'25–30 min · 8x (1 min jog / 2 min walk). Stroller friendly.',cc:0,link:''},
  {t:'4 · Choice Day',d:'30–40 min easy walk/run, OR first lake swim if childcare.',cc:0,link:''},
@@ -126,7 +126,7 @@ function phase(cd){if(cd<=5)return'menstrual';if(cd<=12)return'follicular';if(cd
 
 function buildScale(){const e=document.getElementById('energy');for(let i=1;i<=5;i++){const b=document.createElement('button');b.textContent=i;b.onclick=()=>{energyVal=i;[...e.children].forEach(c=>c.classList.remove('on'));b.classList.add('on')};e.appendChild(b);}}
 function pills(id,set){document.querySelectorAll('#'+id+' button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.remove('on'));b.classList.add('on');set(b.dataset.v);});}
-function renderSessions(){const w=document.getElementById('sessions');w.innerHTML='';SESSIONS.forEach((s,i)=>{const el=document.createElement('div');el.className='sess';el.innerHTML='<div class="t">'+s.t+'</div><div class="d">'+s.d+'</div>'+'<span class="tag'+(s.cc?' y':'')+'">'+(s.cc?'🟡 needs childcare':'🟢 no childcare')+'</span>'+(s.link?' &nbsp;<a href="'+s.link+'" target="_blank">follow-along ↗</a>':'')+'<button class="btn alt" style="margin-top:10px" onclick="logDone('+i+')">Mark done</button>';w.appendChild(el);});}
+function renderSessions(){const w=document.getElementById('sessions');w.innerHTML='';SESSIONS.forEach((s,i)=>{const el=document.createElement('div');el.className='sess';el.innerHTML='<div class="t">'+s.t+'</div><div class="d">'+s.d+'</div>'+'<span class="tag'+(s.cc?' y':'')+'">'+(s.cc?'🟡 needs childcare':'🟢 no childcare')+'</span>'+(s.link?' &nbsp;<a href="'+s.link+'" target="_blank">video 1 ↗</a>':'')+(s.link2?' &nbsp;<a href="'+s.link2+'" target="_blank">video 2 ↗</a>':'')+'<button class="btn alt" style="margin-top:10px" onclick="logDone('+i+')">Mark done</button>';w.appendChild(el);});}
 function today(){return new Date().toISOString().slice(0,10);}
 
 async function unlock(){const v=document.getElementById('pc').value.trim();const r=await fetch(API+'/data?pc='+encodeURIComponent(v));if(r.ok){PC=v;localStorage.setItem('hc_pc',v);document.getElementById('gate').style.display='none';init();}else{document.getElementById('gerr').textContent='Wrong passcode, try again.';}}
