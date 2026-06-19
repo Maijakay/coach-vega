@@ -92,7 +92,7 @@ textarea{min-height:54px;resize:vertical}
   </div>
 
   <div class="card">
-    <h2>Week 1 · pick today’s session</h2>
+    <h2>Week 2 · pick today’s session</h2>
     <div id="sessions"></div>
     <p class="muted" style="text-align:left">Tap “Mark done” after you finish one. Backbone sessions need no childcare, so the streak can’t die.</p>
   </div>
@@ -109,13 +109,14 @@ textarea{min-height:54px;resize:vertical}
 
 <script>
 const API='https://mjzhtzjyflticznicymj.supabase.co/functions/v1/app';
-const ANCHOR=new Date('2026-05-10T00:00:00');
+const ANCHOR=new Date('2026-06-07T00:00:00');
 const SESSIONS=[
- {t:'1 · Glute & Hip Foundation + Core',d:'~25 min · Do BOTH in order: 10-min activation, then the 20-min glute strength. The most important session — wakes glutes so hips stop overcompensating.',cc:0,link:'https://www.nourishmovelove.com/glute-activation/',link2:'https://www.nourishmovelove.com/20-minute-glute-workout/'},
- {t:'2 · Easy Trainer Spin',d:'25–30 min · RPE 4–5, conversational. Break in the trainer.',cc:0,link:'https://www.youtube.com/watch?v=D3bQxOx8DAk'},
- {t:'3 · Walk/Run Intervals',d:'25–30 min · 8x (1 min jog / 2 min walk). Stroller friendly.',cc:0,link:''},
- {t:'4 · Choice Day',d:'30–40 min easy walk/run, OR first lake swim if childcare.',cc:0,link:''},
- {t:'Bonus · First Lake Swim',d:'Easy, no metrics, find your baseline. Needs another adult (water safety).',cc:1,link:''}
+ {t:'1 · Strength A — Full-Body Functional',d:'~30–35 min · 5-min banded glute primer, then 3 rounds (40s work / 20s rest): goblet squat, push-up, DB Romanian deadlift, renegade row, reverse lunge, plank. Add load vs last week. Cue: push through heels, feel the glutes.',cc:0,link:'https://www.nourishmovelove.com/glute-activation/'},
+ {t:'2 · Bike — Tempo Intervals',d:'35 min · 8-min easy warm-up, then 5×(2 min @ RPE 6–7 comfortably hard / 2 min easy), 7-min cool-down. Low-energy option: 30 min easy spin.',cc:0,link:'https://www.youtube.com/watch?v=D3bQxOx8DAk'},
+ {t:'3 · Run Progression + Strides',d:'28 min · 5-min walk warm-up, then 1.5 min run / 1.5 min walk ×7 (RPE 6) — up from last week. Finish with 4×20-sec relaxed-fast strides. Stroller friendly.',cc:0,link:''},
+ {t:'4 · Strength B — Posterior Chain + Swim',d:'30 min · 5-min glute primer, then 3 rounds (45s/15s): single-leg glute bridge, band pull-apart, DB overhead press, RDL, dead bug, bent-over row. Finish: side plank + Pallof press. Builds the back/core that power your swim.',cc:0,link:'https://www.nourishmovelove.com/glute-activation/'},
+ {t:'Mobility · Hip Reset (optional)',d:'10–15 min · 90/90, hip-flexor stretch with a glute squeeze, figure-4. Gentle movement for restless legs — not aggressive static stretching.',cc:0,link:''},
+ {t:'Bonus · Open-Water Swim or Outdoor Ride',d:'20–30 min · Swim: bilateral breathing + practice sighting, go a little longer than last week. Or an outdoor ride. Skip guilt-free if no childcare window.',cc:1,link:''}
 ];
 let PC=localStorage.getItem('hc_pc')||'';
 let energyVal=null,windowVal=null,ccVal=null;
